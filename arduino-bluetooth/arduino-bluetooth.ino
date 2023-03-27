@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial BluetoothDevice(3,4);
+SoftwareSerial BluetoothDevice(2,3);
 
 const byte numChars = 32;
 char receivedChars[numChars];
@@ -12,6 +12,10 @@ void setup() {
     ; // wait for serial port to connect. Needed for native USB port only
   }
   BluetoothDevice.begin(115200);
+    while (!BluetoothDevice) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+  Serial.print("setup");
   delay(1000);
 }
 

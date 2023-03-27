@@ -8,7 +8,7 @@ If you get increasing errors at longer distances (5 meters), it might help to se
 baud rate lower with AT+BAUD.
 */
 
-SoftwareSerial ble_device(3,4);
+SoftwareSerial ble_device(2,3);
 
 String str_ii = "";
 int ii_0 = 0;
@@ -26,15 +26,14 @@ void setup() {
 
 void loop() {
   Serial.println("Hello Dee!");
-  ble_device.println("hi");
   // Enter AT+ commands of interest here (BLE Address, UUIDs, Power settings)
-   ble_cmd("AT+CHAR","Char UUID: "); // printout character UUID
+   ble_cmd("AT+BAUD","Boudrate: "); // printout character UUID
    ble_cmd("AT+UUID", "Service UUID: ");
    ble_cmd("AT+VERSION","Version: "); // module version  
    ble_cmd("AT+PIN","pin: "); 
-  //  ble_cmd("AT+CHAR","Char UUID: "); // printout character UUID
-  //  ble_cmd("AT+VERSION","Version: "); // module version  
-  //  ble_cmd("AT+RST",""); // reset BLE module
+    ble_cmd("AT+CHAR","Char UUID: "); // printout character UUID
+    ble_cmd("AT+VERSION","Version: "); // module version  
+//    ble_cmd("AT+RST",""); // reset BLE module/
   delay(2000);
 }
 
